@@ -10,7 +10,8 @@ def correct_name_dict() -> dict:
 def format_linter_error(error: dict) -> dict:
     return {
         correct_name_dict().get(key, "source"): value
-        if key in correct_name_dict() else "flake8"
+        if key in correct_name_dict()
+        else ("flake8" if key == "source" else "flake8")
         for key, value in error.items()
     }
 
